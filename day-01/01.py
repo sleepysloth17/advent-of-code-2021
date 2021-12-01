@@ -13,16 +13,11 @@ def get_input_list(file_name: str) -> List[int]:
     return return_list
 
 
-def construct_list_to_count(file_name: str, block_size: int) -> List[int]:
-    depth_readings: List[int] = get_input_list(file_name)
-    return [
-        sum(entry) for entry in zip(*[depth_readings[i:] for i in range(0, block_size)])
-    ]
-
-
 def count_number_of_increases(file_name: str, block_size: int) -> int:
-    list_to_compare: List[int] = construct_list_to_count(file_name, block_size)
-    return sum([int(i[1] > i[0]) for i in zip(list_to_compare, list_to_compare[1:])])
+    depth_readings: List[int] = get_input_list(file_name)
+    return sum(
+        [int(i[1] > i[0]) for i in zip(depth_readings, depth_readings[block_size:])]
+    )
 
 
 print("Example part 1: ", count_number_of_increases(EXAMPLE__FILE_NAME, 1))
