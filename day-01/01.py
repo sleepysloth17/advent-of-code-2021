@@ -1,8 +1,8 @@
-from typing import Generator, List
+from typing import List
 
-EXAMPLE__FILE_NAME = "day-01-example.txt"
+EXAMPLE_FILE_NAME: str = "day-01-example.txt"
 
-INPUT_FILE_NAME = "day-01-input.txt"
+INPUT_FILE_NAME: str = "day-01-input.txt"
 
 
 def get_input_list(file_name: str) -> List[int]:
@@ -20,8 +20,8 @@ def count_number_of_increases(file_name: str, block_size: int) -> int:
     )
 
 
-print("Example part 1: ", count_number_of_increases(EXAMPLE__FILE_NAME, 1))
+print("Example part 1: ", count_number_of_increases(EXAMPLE_FILE_NAME, 1))
 print("Result part 1: ", count_number_of_increases(INPUT_FILE_NAME, 1))
 
-print("Example part 2: ", count_number_of_increases(EXAMPLE__FILE_NAME, 3))
+print("Example part 2: ", count_number_of_increases(EXAMPLE_FILE_NAME, 3))
 print("Result part 2: ", count_number_of_increases(INPUT_FILE_NAME, 3))
